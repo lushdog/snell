@@ -1,0 +1,31 @@
+version: "2.4"
+services:
+  snell:
+    image: snell-server
+    container_name: snell
+    ports:
+      - "25011:25011"
+
+  shadow-tls:
+    image: ghcr.io/ihciah/shadow-tls:latest
+    container_name: shadow-tls
+    restart: always
+    ports:
+      - "25344:25344"
+    depends_on:
+      - snell
+    environment:
+      - MODE=server
+      - LISTEN=0.0.0.0:25344
+      - SERVER=0.0.0.0:25011
+      - TLS=bing.com
+      - PASSWORD=changeme
+      - V3=1
+      - MONOIO_FORCE_LEGACY_DRIVER=1
+# Mode: client or server
+# LISTEN: local listen address with port
+# SERVER: remote address with port
+# TLS: server name in sni for client mode(like xxx.com.cn)
+#      server address with port for server mode(like xxx.com.cn:443)
+# PASSWORD: shadow-tls password
+# THREADS(optional): set threads number

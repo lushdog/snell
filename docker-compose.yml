@@ -17,7 +17,7 @@ services:
     environment:
       - MODE=server
       - LISTEN=0.0.0.0:25344
-      - SERVER=0.0.0.0:25011
+      - SERVER=snell:25011
       - TLS=bing.com
       - PASSWORD=changeme
       - V3=1

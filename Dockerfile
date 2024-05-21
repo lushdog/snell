@@ -19,9 +19,6 @@ COPY snell-server.conf /etc/snell-server.conf
 RUN groupadd -r snell && useradd -r -g snell snell
 RUN chown snell:snell /usr/local/bin/snell-server
 
-# 使用 nobody 用户运行
-USER snell
-
 # 暴露端口
 EXPOSE 25011
 

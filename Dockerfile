@@ -4,10 +4,10 @@ FROM ubuntu:22.04
 RUN apt-get update && apt-get install -y wget unzip
 
 # 下载 Snell Server
-RUN wget https://dl.nssurge.com/snell/snell-server-v4.0.1-linux-amd64.zip
+RUN wget https://dl.nssurge.com/snell/snell-server-v4.1.1-linux-amd64.zip
 
 # 解压 Snell Server 到 /usr/local/bin
-RUN unzip snell-server-v4.0.1-linux-amd64.zip -d /usr/local/bin
+RUN unzip snell-server-v4.1.1-linux-amd64.zip -d /usr/local/bin
 
 # 清理不需要的文件
 RUN rm snell-server-v4.0.1-linux-amd64.zip
